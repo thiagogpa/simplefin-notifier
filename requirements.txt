@@ -1,0 +1,5 @@
+python-dotenv
+schedule
+gotify
+cryptography
+requests

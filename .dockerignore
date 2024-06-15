@@ -1,0 +1,36 @@
+credentials/*
+
+# Ignore files and directories commonly excluded in Python Docker builds
+
+# Ignore Python virtual environment directories
+.venv/
+env/
+venv/
+env.bak/
+venv.bak/
+
+# Ignore development and testing files
+*.log
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+*.pyc
+
+# Ignore IDE-specific files and directories
+.vscode/
+.idea/
+
+# Ignore local development files
+docker-compose.yml
+docker-compose.dev.yml
+
+.env
+.gitignore
+Notes.txt
+
+
+# Byte-compiled / optimized Python files
+__pycache__/
+*.py[cod]
