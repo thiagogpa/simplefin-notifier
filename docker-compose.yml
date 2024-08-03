@@ -16,8 +16,11 @@ services:
       - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
       - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+      - NTFY_URL=${NTFY_URL}
+      - NTFY_TOKEN=${NTFY_TOKEN}
+      - NTFY_PRIORITY=${NTFY_PRIORITY}
       - ENCRYPTION_KEY=${ENCRYPTION_KEY}
-      - CRON_SCHEDULE=0 12 * * *              # Change the schedule as needed
+      - CRON_SCHEDULE=0 12 * * * # Change the schedule as needed
     volumes:
       - ./credentials:/app/credentials
       - ./.env:/app/.env

@@ -4,13 +4,13 @@
 [![Docker Image Version](https://img.shields.io/docker/v/ghcr.io/thiagogpa/simplefin-notifier?label=Docker%20Image&logo=docker&style=flat-square)](https://github.com/thiagogpa/simplefin-notifier/pkgs/container/simplefin-notifier)
 [![License](https://img.shields.io/github/license/thiagogpa/simplefin-notifier?style=flat-square)](https://github.com/thiagogpa/simplefin-notifier/blob/main/LICENSE)
 
-SimpleFin-Notifier is a Python application that fetches data from the SimpleFIN API and sends notifications to various services like Discord, Telegram, and Gotify. It's designed to be easily deployable using Docker and can be scheduled to run periodically using cron or a similar task scheduler.
+SimpleFin-Notifier is a Python application that fetches data from the SimpleFIN API and sends notifications to various services like Discord, Telegram, ntfy, and Gotify. It's designed to be easily deployable using Docker and can be scheduled to run periodically using cron or a similar task scheduler.
 
 ## Features ✨
 
 - 🔑 Securely stores and retrieves SimpleFIN API credentials
 - 📡 Fetches data from the SimpleFIN API
-- 📢 Sends notifications to Discord, Telegram, and Gotify
+- 📢 Sends notifications to Discord, Telegram, ntfy, and Gotify
 - 🐳 Containerized using Docker for easy deployment
 - 🔄 Can be scheduled to run periodically
 - 🔒 Encrypts sensitive data using the `cryptography` library
@@ -85,6 +85,9 @@ Then, run the Docker container:
 - `DISCORD_WEBHOOK_URL`:    Discord webhook URL for sending notifications
 - `TELEGRAM_BOT_TOKEN`:	    Telegram bot token for sending notifications
 - `TELEGRAM_CHAT_ID`:	    Telegram chat ID to send notifications to
+- `NTFY_URL`:	            URL for the ntfy server including the topic
+- `NTFY_TOKEN`:	            Token for the ntfy server if Authorization is required
+- `NTFY_PRIORITY`:	        Priority level for the ntfy notification (default: 3)
 - `ENCRYPTION_KEY`:	        Encryption key for securing sensitive data (generated automatically if not provided)
 
 

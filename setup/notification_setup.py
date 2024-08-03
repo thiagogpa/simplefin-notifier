@@ -3,13 +3,17 @@ from config.env_config import (
     GOTIFY_BASE_URL,
     TELEGRAM_BOT_TOKEN,
     TELEGRAM_CHAT_ID,
-    DISCORD_WEBHOOK_URL
+    DISCORD_WEBHOOK_URL,
+    NTFY_TOKEN,
+    NTFY_URL,
+    NTFY_PRIORITY
 )
 
 from services.notification_service import NotificationService
 from services.gotify_service import GotifyService
 from services.discord_service import DiscordService
 from services.telegram_service import TelegramService
+from services.ntfy_service import NtfyService
 
 
 
@@ -36,9 +40,18 @@ class NotificationSetup:
         if telegram_bot_token and telegram_chat_id:
             telegram_service = TelegramService(telegram_bot_token, telegram_chat_id)
             self.notification_service.add_service(telegram_service)
+    
+    def setup_ntfy(self):
+        token = NTFY_TOKEN
+        url = NTFY_URL
+        priority = NTFY_PRIORITY
+        if url:
+            ntfy_service = NtfyService(url, token, priority)
+            self.notification_service.add_service(ntfy_service)
 
     def setup_notifications(self):
         self.setup_gotify()
         self.setup_discord()
         self.setup_telegram()
+        self.setup_ntfy()
         return self.notification_service

@@ -45,6 +45,9 @@ def load_environment_variables() -> None:
         os.environ.setdefault("TELEGRAM_BOT_TOKEN", env_vars.get("TELEGRAM_BOT_TOKEN", ""))
         os.environ.setdefault("TELEGRAM_CHAT_ID", env_vars.get("TELEGRAM_CHAT_ID", ""))
         os.environ.setdefault("ENCRYPTION_KEY", env_vars.get("ENCRYPTION_KEY", ""))
+        os.environ.setdefault("NTFY_TOKEN", env_vars.get("NTFY_TOKEN", ""))
+        os.environ.setdefault("NTFY_URL", env_vars.get("NTFY_URL", ""))
+        os.environ.setdefault("NTFY_PRIORITY", env_vars.get("NTFY_PRIORITY", "3"))
     except KeyError as e:
         app_logger.error(f"Environment variable not informed: {e}")
 
@@ -68,6 +71,9 @@ def load_environment_variables() -> None:
     os.environ["TELEGRAM_BOT_TOKEN"] = os.environ.get("TELEGRAM_BOT_TOKEN", os.environ["TELEGRAM_BOT_TOKEN"])
     os.environ["TELEGRAM_CHAT_ID"] = os.environ.get("TELEGRAM_CHAT_ID", os.environ["TELEGRAM_CHAT_ID"])
     os.environ["ENCRYPTION_KEY"] = os.environ.get("ENCRYPTION_KEY", os.environ["ENCRYPTION_KEY"])
+    os.environ["NTFY_TOKEN"] = os.environ.get("NTFY_TOKEN", os.environ["NTFY_TOKEN"])
+    os.environ["NTFY_URL"] = os.environ.get("NTFY_URL", os.environ["NTFY_URL"])
+    os.environ["NTFY_PRIORITY"] = os.environ.get("NTFY_PRIORITY", os.environ["NTFY_PRIORITY"])
 
 # Load environment variables
 load_environment_variables()
@@ -82,3 +88,6 @@ DISCORD_WEBHOOK_URL: Optional[str] = os.environ.get("DISCORD_WEBHOOK_URL")
 TELEGRAM_BOT_TOKEN: Optional[str] = os.environ.get("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID: Optional[str] = os.environ.get("TELEGRAM_CHAT_ID")
 ENCRYPTION_KEY: str = os.environ["ENCRYPTION_KEY"]
+NTFY_TOKEN: Optional[str] = os.environ.get("NTFY_TOKEN")
+NTFY_URL: Optional[str] = os.environ.get("NTFY_URL")
+NTFY_PRIORITY: Optional[str] = os.environ["NTFY_PRIORITY"]

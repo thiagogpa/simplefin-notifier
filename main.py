@@ -27,7 +27,8 @@ def main():
         error_message = "Errors from SimpleFIN API:\n"
         for error in simplefin_data["errors"]:
             error_message += f"- {error}\n"
-
+        app_logger.info("Errors found in the SimpleFIN API response. Notifying user.")
+        app_logger.debug(f"Error message: {error_message}")
         notification_service.notify(
             title="SimpleFIN Connection Issues",
             message=error_message,
